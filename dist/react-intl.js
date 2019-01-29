@@ -3093,7 +3093,7 @@ function getNamedFormat(formats, type, name) {
   }
 
   {
-    console.warn('[React Intl] No ' + type + ' format named: ' + name);
+    console.log('[React Intl] No ' + type + ' format named: ' + name);
   }
 }
 
@@ -3112,7 +3112,7 @@ function formatDate(config, state, value) {
     return state.getDateTimeFormat(locale, filteredOptions).format(date);
   } catch (e) {
     {
-      console.warn('[React Intl] Error formatting date.\n' + e);
+      console.log('[React Intl] Error formatting date.\n' + e);
     }
   }
 
@@ -3139,7 +3139,7 @@ function formatTime(config, state, value) {
     return state.getDateTimeFormat(locale, filteredOptions).format(date);
   } catch (e) {
     {
-      console.warn('[React Intl] Error formatting time.\n' + e);
+      console.log('[React Intl] Error formatting time.\n' + e);
     }
   }
 
@@ -3169,7 +3169,7 @@ function formatRelative(config, state, value) {
     });
   } catch (e) {
     {
-      console.warn('[React Intl] Error formatting relative time.\n' + e);
+      console.log('[React Intl] Error formatting relative time.\n' + e);
     }
   } finally {
     updateRelativeFormatThresholds(oldThresholds);
@@ -3192,7 +3192,7 @@ function formatNumber(config, state, value) {
     return state.getNumberFormat(locale, filteredOptions).format(value);
   } catch (e) {
     {
-      console.warn('[React Intl] Error formatting number.\n' + e);
+      console.log('[React Intl] Error formatting number.\n' + e);
     }
   }
 
@@ -3210,7 +3210,7 @@ function formatPlural(config, state, value) {
     return state.getPluralFormat(locale, filteredOptions).format(value);
   } catch (e) {
     {
-      console.warn('[React Intl] Error formatting plural.\n' + e);
+      console.log('[React Intl] Error formatting plural.\n' + e);
     }
   }
 
@@ -3250,7 +3250,7 @@ function formatMessage(config, state) {
       formattedMessage = formatter.format(values);
     } catch (e) {
       {
-        console.warn('[React Intl] Error formatting message: "' + id + '" for locale: "' + locale + '"' + (defaultMessage ? ', using default message as fallback.' : '') + ('\n' + e));
+        console.log('[React Intl] Error formatting message: "' + id + '" for locale: "' + locale + '"' + (defaultMessage ? ', using default message as fallback.' : '') + ('\n' + e));
       }
     }
   } else {
@@ -3259,7 +3259,7 @@ function formatMessage(config, state) {
       // when no `messages` are passed into the <IntlProvider> for the
       // default locale, and a default message is in the source.
       if (!defaultMessage || locale && locale.toLowerCase() !== defaultLocale.toLowerCase()) {
-        console.warn('[React Intl] Missing message: "' + id + '" for locale: "' + locale + '"' + (defaultMessage ? ', using default message as fallback.' : ''));
+        console.log('[React Intl] Missing message: "' + id + '" for locale: "' + locale + '"' + (defaultMessage ? ', using default message as fallback.' : ''));
       }
     }
   }
@@ -3271,14 +3271,14 @@ function formatMessage(config, state) {
       formattedMessage = _formatter.format(values);
     } catch (e) {
       {
-        console.warn('[React Intl] Error formatting the default message for: "' + id + '"' + ('\n' + e));
+        console.log('[React Intl] Error formatting the default message for: "' + id + '"' + ('\n' + e));
       }
     }
   }
 
   if (!formattedMessage) {
     {
-      console.warn('[React Intl] Cannot format message: "' + id + '", ' + ('using message ' + (message || defaultMessage ? 'source' : 'id') + ' as fallback.'));
+      console.log('[React Intl] Cannot format message: "' + id + '", ' + ('using message ' + (message || defaultMessage ? 'source' : 'id') + ' as fallback.'));
     }
   }
 
@@ -3355,7 +3355,7 @@ function getConfig(filteredProps) {
 
 
     {
-      console.warn('[React Intl] Missing locale data for locale: "' + locale + '". ' + ('Using default locale: "' + defaultLocale + '" as fallback.'));
+      console.log('[React Intl] Missing locale data for locale: "' + locale + '". ' + ('Using default locale: "' + defaultLocale + '" as fallback.'));
     }
 
     // Since there's no registered locale data for `locale`, this will
